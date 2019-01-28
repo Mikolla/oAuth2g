@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <title>Spring Security Example </title>
+    <div th:replace="fragments/header :: header-css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header" style="margin-bottom: 0px"/>
+
+
+
+
+
+
+
+
+<div class="row">
+    <div class="col-md-2" style="margin-top: 20px; padding-right: 0px; min-height: 85vh;">
+        <nav class="nav-sidebar  nav-justified">
+            <ul class="nav nav-pills nav-stacked">
+                <li class=""><a href="/admin" style="border-radius: 0;">Admin</a></li>
+                <li class="active"><a href="/user"  style="border-radius: 0;">User</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="col-md-10" style="background: #f9f9f9; padding-right: 40px; min-height: 85vh;">
+                <h1>User page</h1>
+                <p th:text="'Hello, ' + ${user} + '!'" />
+            </div>
+        </div>
+
+        <!-- tab content -->
+
+
+<br/>
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>

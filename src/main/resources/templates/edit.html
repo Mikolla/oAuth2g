@@ -1,0 +1,74 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+
+<head>
+    <title>Edit user</title>
+</head>
+<body>
+<div>
+
+    <label>EDIT FORM</label>
+    <br/>
+
+    <div th:if="${param.error}">
+        <div>
+            <p>All fields must be filled.</p>
+        </div>
+    </div>
+
+
+
+    <form th:action="@{/admin/edit}" method="post">
+
+
+                <div>
+                     <label>Name</label>
+                     </div>
+                     <div>
+                     <input type="text" name="name" th:value="${user.name}" required="true"/>
+                </div>
+                <div>
+                    <label>Login</label>
+                </div>
+                <div>
+                    <input type="text" name="login" th:value="${user.login}" required="true"/>
+                </div>
+                <div>
+                    <label>Password</label>
+                </div>
+                <div>
+                    <input type="text" name="password" th:value="${user.password}" required="true"/>
+                </div>
+                <div>
+                    <label>Role</label>
+                </div>
+                <div>
+                    <select  name="role">
+                        <option></option>
+                        <option>User</option>
+                        <option>Admin</option>
+                    </select>
+                </div>
+
+
+
+
+
+        <div>
+            <div>
+                <input type="submit"  value="save"/>
+                <input type="hidden" name="id" th:value="${user.id}"/>
+                <a href="/admin">Back</a>
+            </div>
+            <div>
+            </div>
+        </div>
+
+    </form>
+
+
+            </div>
+            </body>
+            </html>

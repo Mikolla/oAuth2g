@@ -40,7 +40,7 @@ public class HomeController {
 		return "welcome";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login1", method = RequestMethod.GET)
 	public String loginPage(ModelMap modelMap) {
 	    return "login";
 	}

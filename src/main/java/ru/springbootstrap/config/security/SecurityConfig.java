@@ -10,7 +10,7 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import ru.springbootstrap.config.security.handlers.CustomAuthenticationSuccessHandler;
 import ru.springbootstrap.config.security.service.AuthenticationService;
 
-
+//https://www.baeldung.com/spring-security-5-oauth2-login
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -37,9 +37,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
               //  .antMatchers("/user/**").hasAnyAuthority("Admin")
                 .antMatchers("/admin/**").hasAnyAuthority("Admin")
                 .antMatchers("/").hasAnyAuthority("Admin", "User")
-                .and().formLogin().loginPage("/login").successHandler(successHandler)
+                .and().formLogin().loginPage("/login1").successHandler(successHandler)
+         //       .and().oauth2Login()
                 .usernameParameter("username").passwordParameter("password")
                 .and().exceptionHandling().accessDeniedPage("/access_denied")
          ;
+
+
     }
+
+
 }

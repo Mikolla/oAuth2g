@@ -48,7 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().formLogin().loginPage("/login1").successHandler(successHandler)
                 .usernameParameter("username").passwordParameter("password")
                 .and().exceptionHandling().accessDeniedPage("/access_denied")
-                .and().oauth2Login()
+              //  .and().oauth2Login()
          ;
 
 

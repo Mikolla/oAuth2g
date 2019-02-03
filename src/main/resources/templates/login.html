@@ -4,6 +4,9 @@
     <title>Spring Boot Security Bootstrap example</title>
     <div th:replace="fragments/header :: header-css"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <meta name="google-signin-client_id" content="353616429679-s7k7v4o6q3t91g2nsdmauvo82uunv19d.apps.googleusercontent.com"></meta>
 </head>
 <body>
 
@@ -48,7 +51,41 @@
         </div>
     </div>
 
+    <div>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    </div>
 </div>
+<div>
+    <p id = "giddata"></p>
+    <p id = "gnamedata"></p>
+    <p id = "gemaildata"></p>
+</div>
+<script>
+    function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        var gid = profile.getId();
+        var name = profile.getName();
+        var email = profile.getEmail();
+        console.log('ID: ' + gid); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + name);
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + email); // This is null if the 'email' scope is not present.
+        if(gid != null) {
+            $('#giddata').append(gid);
+            $('#giddata').append(name);
+            $('#giddata').append(email);
+        }
+    }
+</script>
+<a href="#" onclick="signOut();">Sign out</a>
+<script>
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            console.log('User signed out.');
+        });
+    }
+</script>
 
 <div th:replace="fragments/footer :: footer"/>
 
